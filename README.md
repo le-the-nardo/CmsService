@@ -13,7 +13,7 @@ Key features:
 - Entity versioning
 - Migrations
 - Clear separation between read and write models
-- Basic Authentication (CMS and Users)
+- Basic Authentication (CMS and API Users)
 - Role-based visibility (User vs Admin)
 - Proper handling of versioning corner cases
 - Unit Tests for user authentication and business rules
@@ -29,7 +29,7 @@ Key features:
   - Persistence using Entity Framework Core
 - **API**
   - REST endpoints
-  - Separate Basic Auth mechanisms for CMS and users
+  - Separate Basic Auth mechanisms for CMS and API users
 
 ---
 
@@ -69,26 +69,58 @@ There are two authentication flows:
 
 ### Unit Tests
 Coverage includes:
+
+Business Rules
 - Publish flow
+- Idempotency with Publish flow
+- Avoid publishing older version
 - Unpublish flow
-- Corner case: publish + unpublish in the same batch
-- Admin vs user visibility rules
+- Unpublish unpublished version
+- Unknow event type
+- Delete flow
 
-Tools used:
-- xUnit
-- Moq
-- FluentAssertions
-
-### Manual Tests
-A separate document describes all manual test scenarios required to validate the challenge.
+Authentication rules
+- Basic Authentication (Admin vs user)
 
 ---
 
 ## How to Run
 
-```bash
-dotnet restore
-dotnet run
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd CmsService
+   ```
+
+2. **Restore dependencies**
+   ```bash
+   dotnet restore
+   ```
+
+3. **Run the application**
+   ```bash
+   dotnet run
+   ```
+
+4. **Endpoints via Postman**
+
+### CMS Events
+- **POST /cms/events**
+  - Endpoint responsible for processing batch events coming from the CMS.
+  - Requires authentication using the **CMS system user**.
+  - Used exclusively for asynchronous event ingestion and processing.
+
+### Entities
+- **GET api/entities/{id}**
+- **GET api/entities**
+- **POST api/entities/{id}/disable**
+  - API endpoints for managing domain entities.
+  - Follow REST standards and share the same API authentication mechanis
+
+## Postman Collection
+
+A Postman collection is available to facilitate manual testing of the API.
+Location: /CmsService/CMS Service.postman_collection.json
 
 ## Author 👦🏻
 
