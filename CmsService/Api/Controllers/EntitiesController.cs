@@ -1,30 +1,11 @@
+using CmsService.Api.Contracts;
 using CmsService.Api.Security;
-using CmsService.Domain.Entities;
 using CmsService.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CmsService.Api.Controllers;
-
-public record PublishEntityRequest(
-    string EntityId,
-    int Version,
-    string Payload,
-    DateTime Timestamp
-);
-
-public record EntityResponse(
-    string Id,
-    int? LatestPublishedVersion,
-    string? Payload
-);
-
-public record UnpublishEntityRequest(
-    string EntityId,
-    int Version,
-    DateTime Timestamp
-);
 
 [Authorize(AuthenticationSchemes = "UserBasic")]
 [ApiController]

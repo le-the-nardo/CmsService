@@ -35,6 +35,7 @@
       <Compile Remove="Application\**" />
       <Compile Remove="Domain\Enums\**" />
       <Compile Remove="Infrastructure\Logging\**" />
+      <Compile Remove="Api\Contracts\PublishEntityRequest.cs" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "0d05e57a-2b89-4ebb-8f16-71c3d93b8ddc",
+    "name": "CMS Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "10584594"
+  },
+  "item": [
+    {
+      "name": "Webhook Batch Events",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "123456",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "cms-user",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"type\": \"publish\",\n    \"id\": \"X\",\n    \"version\": 3,\n    \"payload\": { \"title\": \"Hello world\" },\n    \"timestamp\": \"2025-01-01T00:00:00Z\"\n  }\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5241/cms/events",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5241",
+          "path": [
+            "cms",
+            "events"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Entitiy by Id",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "user123",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5241/api/entities/corner-x",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5241",
+          "path": [
+            "api",
+            "entities",
+            "corner-x"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Entities",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5241/api/entities",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5241",
+          "path": [
+            "api",
+            "entities"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Admin Disable Entity",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5241/api/entities//disable",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5241",
+          "path": [
+            "api",
+            "entities",
+            "",
+            "disable"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
