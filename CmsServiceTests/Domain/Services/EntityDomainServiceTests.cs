@@ -1,13 +1,9 @@
-using System;
 using System.Text.Json;
-using System.Threading.Tasks;
 using CmsService.Api.Contracts;
-using CmsService.Domain.Entities;
 using CmsService.Domain.Services;
 using CmsService.Infrastructure.Persistence;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using Xunit;
 
 namespace CmsService.Tests.Domain.Services;
 
