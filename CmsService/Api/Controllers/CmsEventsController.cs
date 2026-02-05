@@ -1,6 +1,5 @@
 using CmsService.Api.Contracts;
 using CmsService.Domain.Services;
-using CmsService.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

@@ -34,11 +34,3 @@ public class EntityConfiguration : IEntityTypeConfiguration<Entity>
         builder.HasIndex(e => e.LatestPublishedVersion);
     }
 }
-
-// Why (only important points):
-//
-// Cascade delete simplifies delete events
-//
-//     Index improves read performance
-//
-//     Explicit table naming avoids surprises
